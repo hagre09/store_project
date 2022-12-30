@@ -1,0 +1,169 @@
+/* Start Global Roles */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: #f5f5f5;}
+
+.row {
+    width: 80%;
+    margin: auto;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* End Global Roles */
+
+/* Start Header */
+/* Header Part 1 */
+.himg {
+    background-color: #ff9900;
+}
+
+.himg img {
+    margin: auto;
+    display: block;
+}
+
+/* Header Part 2 */
+#secHeader{
+    background-color: #f5f5f5;
+    padding: 10px 0;
+}
+#secHeader>div {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+#secHeader div div:first-child a{
+    color: #ff9900;
+}
+
+#secHeader div i {
+    color: #ff9900;
+}
+
+#secHeader div:first-child img {
+    width: 16px;
+}
+
+/* Header Part 3 */
+#thirdHeadr {
+    background-color: white;
+    padding: 10px 0;
+}
+#thirdHeadr .row{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+
+
+}
+#thirdHeadr .row .form-div{
+    width: 40%;
+    padding-top: 5px;
+}
+
+#thirdHeadr .row .form-div input{
+    line-height: 30px;
+    width: 70%;
+}
+
+#thirdHeadr .row .form-div button{
+    width: 60px;
+    line-height: 30px;
+    color: white;
+    background-color: #ff9900;
+    border-color: #ff9900;
+    border-radius: 5px;
+    font-size: 17px;
+}
+
+#thirdHeadr .row i{
+    color: #ff9900;
+    margin-top: 10px;
+}
+
+#thirdHeadr .row div span {
+    color: black;
+    font-weight: bold;
+    margin-top: 10px;
+}
+/* End Header */
+
+/* Start Aside and  Slider */
+#aside-slider{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+#slider{
+    width: 60%;
+    position: relative;
+    /* overflow: hidden; */
+}
+#aside-slider aside{
+    width: 20%;
+    background-color: white;
+}
+#aside-slider aside ul li{
+    list-style: none;
+    padding: 5px 10px;
+    
+}
+#aside-slider aside ul li a{
+    color: #666;
+}
+#slider .imgs img{
+    width: 97%;
+    margin: 10px;
+    display: none;
+}
+#slider .imgs img:first-child{
+    display: block;
+}
+
+#slider .dirs{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 35%;
+    width: 94%;
+    padding: 20px;
+}
+#slider .dirs a{
+    background-color: rgb(255, 255, 255, .3);
+    font-size: 30px;
+    padding: 15px;
+    border-radius: 50%;
+    
+
+}
+#slider .indicators{
+    display: flex;
+    justify-content: center;
+    margin-top: -35px;
+}
+#slider .indicators a{
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    background-color: rgb(255, 255, 255, .3);
+    border-radius: 50%;
+    border: 2px solid #666;
+    margin: 2px;
+    padding: 0;
+}
+#slider a:hover{
+    background-color: rgb(255, 255, 255, .5);
+}
+#aside-slider .right-colume{
+    width: 20%;
+}
+/* End Aside and  Slider */
