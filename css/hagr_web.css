@@ -201,7 +201,7 @@ a{
     margin: 0px 10px;
     
 }
-.product:hover{
+.product:hover{ 
     background-color: #eee;
 }
 .product img{
@@ -256,17 +256,7 @@ footer .row{
     display: flex;
     justify-content: space-between;
 }
-footer .row div:first-child{
 
-}
-
-footer .row div:first-child img{
-
-}
-
-footer .row div:nth-child(2){
-
-}
 
 footer .row h3{
     color: white;
@@ -277,10 +267,6 @@ footer .row p{
     color: #999;
     font-size: 12px;
     margin-bottom: 10px;
-}
-
-footer .row div:nth-child(2) form{
-
 }
 
 footer .row div:nth-child(2) form input{
@@ -312,8 +298,4 @@ footer .row div:nth-child(3) div div img{
     margin-top: -8px;
 }
 
-
-footer .row div:nth-child(3) div a img{
-
-}
 /* End Footer */
