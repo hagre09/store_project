@@ -70,8 +70,8 @@ function api_getProducts() {
             for(var pro of products){
                 
                 htmlStr += `<div class="product">
-                                <a href="${api_getDomain()}?page=singleproudect&id=${pro.id}"><img src="${pro.image}" alt=""></a>
-                                <p><a href="${api_getDomain()}?page=singleproudect&id=${pro.id}">${pro.title.slice(0,50)}</p></a>
+                                <a href="${api_getDomain()}?page=singleproduct&id=${pro.id}"><img src="${pro.image}" alt=""></a>
+                                <p><a href="${api_getDomain()}?page=singleproduct&id=${pro.id}">${pro.title.slice(0,50)}</p></a>
                                 <div class="price">
                                     <span>${pro.price} EGP</span>
                                     <div class="rate">
