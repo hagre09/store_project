@@ -6,7 +6,13 @@
 }
 
 body{
-    background-color: #f5f5f5;}
+    background-color: #f5f5f5;
+}
+
+#loading{
+    display: block;
+    margin: 30px auto;
+}
 
 .row {
     width: 80%;
@@ -23,6 +29,12 @@ a{
 /* Header Part 1 */
 .himg {
     background-color: #ff9900;
+}
+
+.himg a{
+    width: 80%;
+    display: inline-block;
+    margin-left: 5%;
 }
 
 .himg img {
@@ -43,6 +55,7 @@ a{
 
 #secHeader div div:first-child a{
     color: #ff9900;
+    font-size: 14px;
 }
 
 #secHeader div i {
@@ -73,16 +86,17 @@ a{
 #thirdHeadr .row .form-div input{
     line-height: 30px;
     width: 70%;
+    padding: 0 10px;
 }
 
 #thirdHeadr .row .form-div button{
-    width: 60px;
     line-height: 30px;
     color: white;
     background-color: #ff9900;
     border-color: #ff9900;
     border-radius: 5px;
     font-size: 17px;
+    padding: 0 10px;
 }
 
 #thirdHeadr .row i{
@@ -124,6 +138,7 @@ a{
     width: 97%;
     margin: 10px;
     display: none;
+    border-radius: 10px;
 }
 #slider .imgs img:first-child{
     display: block;
@@ -152,11 +167,11 @@ a{
 }
 #slider .indicators a{
     display: inline-block;
-    height: 10px;
-    width: 10px;
+    height: 5px;
+    width: 5px;
     background-color: rgb(255, 255, 255, .3);
     border-radius: 50%;
-    border: 2px solid #666;
+    border: 2px solid rgb(255, 255, 255, .3);
     margin: 2px;
     padding: 0;
 }
@@ -166,4 +181,139 @@ a{
 #aside-slider .right-colume{
     width: 20%;
 }
+#aside-slider .right-colume img{
+    border-radius: 10px;
+}
 /* End Aside and  Slider */
+
+/* Start Section Products */
+#products .row1{
+    display: flex;
+    /* border: 1px solid rgb(217, 213, 213); */
+    margin-top: 20px;
+}
+.product{
+    width: 25%;
+    /* border-top: 1px solid rgb(217, 213, 213); */
+    background-color: white;
+    padding-bottom: 10px;
+    /* border-left: 1px solid rgb(217, 213, 213); */
+    margin: 0px 10px;
+    
+}
+.product:hover{
+    background-color: #eee;
+}
+.product img{
+    width: 240px;
+    height: 260px;
+    margin: 15px 15px 0;
+    /* padding: 15px; */
+    display: inline-block;
+}
+
+.product p a{
+    font-size: 13px;
+    color: #666;
+    margin: 10px 10px;
+    padding: 0px 10px;
+    text-align: center;
+    display: inline-block;
+    height: 30px;
+    overflow: hidden;
+}
+
+.price{
+    font-size: 11px;
+    font-weight: bold;
+    color: blue;
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 10px 0;
+}
+
+.product button{
+    width: 80%;
+    margin: auto;
+    line-height: 30px;
+    background-color: #7ad100;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    display: block;
+}
+
+/* End Section Products */
+
+/* Start Footer */
+footer{
+    background: #282828;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+footer .row{
+    display: flex;
+    justify-content: space-between;
+}
+footer .row div:first-child{
+
+}
+
+footer .row div:first-child img{
+
+}
+
+footer .row div:nth-child(2){
+
+}
+
+footer .row h3{
+    color: white;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+footer .row p{
+    color: #999;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+footer .row div:nth-child(2) form{
+
+}
+
+footer .row div:nth-child(2) form input{
+    line-height: 30px;
+    width: 70%;
+    padding: 0 10px;
+}
+
+footer .row div:nth-child(2) form button{
+    line-height: 30px;
+    color: white;
+    background-color: #ff9900;
+    border-color: #ff9900;
+    border-radius: 5px;
+    font-size: 17px;
+    padding: 0 10px;
+    margin-top: 2px;
+    display: inline-block;
+
+}
+
+footer .row div:nth-child(3)>div{
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .row div:nth-child(3) div div img{
+    margin-right: 10px;
+    margin-top: -8px;
+}
+
+
+footer .row div:nth-child(3) div a img{
+
+}
+/* End Footer */
