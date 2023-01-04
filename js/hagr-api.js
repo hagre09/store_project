@@ -1,3 +1,5 @@
+var categoriesName = [];
+
 function load_js(path) {
     var script = document.createElement('script');
     script.src = path;
@@ -6,6 +8,7 @@ function load_js(path) {
 
  function load_css(path) {
     var style = document.createElement('link');
+    style.rel = "stylesheet"
     style.href= path;
     document.head.appendChild(style);
  }
@@ -66,15 +69,49 @@ function api_loadPage(contentid = "content", page = "") {
             var pageLoaded = xhr.response;
             pageContent.innerHTML = pageLoaded
         }
+        if(page == "home"){
+            load_js("js/hagr_slider.js")
+        }
     })
 }
 
+function api_getCategories() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://fakestoreapi.com/products/categories");
+    xhr.send();
 
+    xhr.addEventListener("readystatechange", function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var categories = JSON.parse(xhr.response);
+            categoriesName = categories;
+            var htmlStr = ``;
+            for (var cat of categories) {
+                htmlStr += `<li><a href="">${cat}</a></li>`;
+            }
+            document.getElementById("categories").innerHTML = htmlStr;
+            document.querySelectorAll("#categories li a").forEach(function (elm) {
+                elm.onclick=function (evt) {
+                    evt.preventDefault();
+                    api_getProducts(`https://fakestoreapi.com/products/category/${elm.textContent}`)
+                }
+            })
+        }
+    })
+}
 
-function api_getProducts() {
+function api_search(inputVal="") {
+    var catName = categoriesName.find((e)=>{return e.includes(inputVal)})
+    if (!inputVal) {
+        api_getProducts()
+    }else{
+        api_getProducts(`https://fakestoreapi.com/products/category/${catName}`)
+    }
+}
+
+function api_getProducts(getUri = "https://fakestoreapi.com/products") {
     api_gifLoading("products")
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://fakestoreapi.com/products");
+    xhr.open("GET", getUri);
     xhr.send();
 
     xhr.addEventListener("readystatechange", function () {
@@ -98,7 +135,7 @@ function api_getProducts() {
                                     </div>
                                 </div>
                                 <p><a href="">Free Shipping</a></p>
-                                <button proid="${pro.id}"><a href="${api_getDomain()}?page=cart&id=${pro.id}"">ADD TO CART</a></button>
+                                <button proid="${pro.id}" onclick="addToCard(${pro.id})">ADD TO CART</button>
                             </div>`;
                 if (i % 4 == 0 && i > 3 && i / 4 < (products.length / 4)) {
                     htmlStr += `</section><section class="row1">`
@@ -108,7 +145,11 @@ function api_getProducts() {
 
             }
             htmlStr += `</section>`;
-            document.getElementById("products").innerHTML = htmlStr;
+            if(products.length>0){
+                document.getElementById("products").innerHTML = htmlStr;
+            }else{
+                document.getElementById("products").innerHTML = `<h2 style="text-align: center;margin: 50px auto;">No Search Reseults</h2>`;
+            }
         }
     })
 }

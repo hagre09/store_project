@@ -1,0 +1,78 @@
+/* start single pag */
+#container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.changebutton {
+    padding: 10px 20px;
+    font-size: 30px;
+    transition: 0.3s;
+}
+
+.changebutton:hover {
+    color: #ff9900;
+    border: 2px solid #ff9900;
+}
+
+/* end single pag */
+
+
+.changebutton {
+    margin: 0 auto 80px;
+    border: 2px solid black;
+    padding: 10px 20px;
+    font-size: 30px;
+    width: fit-content;
+    position: relative;
+    z-index: 1;
+    transition: 0.3s;
+}
+
+.changebutton::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    position: absolute;
+    border-radius: 50%;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+.changebutton::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    position: absolute;
+    border-radius: 50%;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.changebutton:hover::before {
+    z-index: -1;
+    animation: left-move 0.5s linear forwards;
+}
+
+.changebutton:hover::after {
+    z-index: -1;
+    animation: right-move 0.5s linear forwards;
+}
+
+.changebutton:hover {
+    color: white;
+    border: 2px solid white;
+    transition-delay: 0.5s;
+}
