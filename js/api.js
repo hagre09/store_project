@@ -154,6 +154,10 @@ function api_getProducts(getUri = "https://fakestoreapi.com/products") {
     })
 }
 
-
-
-
+var i=0
+function addToCard(id){
+  
+    localStorage.setItem(i, id)
+    i++
+    
+}

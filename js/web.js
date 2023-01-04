@@ -18,17 +18,12 @@ if(currPage == "home"){
     api_getProducts()
     load_js("js/home.js")
 }else if(currPage == "singleproduct"){
-    load_css("css/malak_singleproduct.css")
-    load_js("js/malak_singleproduct.js")
+    load_css("css/singleproduct.css")
+    load_js("js/singleproduct.js")
 }else if (currPage == "cart"){
-    load_css("css/osama_cart.css")
-    load_js("js/osama_cart.js")
+    load_css("css/cart.css")
+    load_js("js/cart.js")
 }else if (currPage == "login"){
     load_css("css/login.css")
     load_js("js/login.js")
-}//else if (currPage == "register"){
-//     load_css("")
-//     load_js("")
-// }
-
-
+}
