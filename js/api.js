@@ -4,14 +4,14 @@ function load_js(path) {
     var script = document.createElement('script');
     script.src = path;
     document.body.appendChild(script);
- }
+}
 
- function load_css(path) {
+function load_css(path) {
     var style = document.createElement('link');
     style.rel = "stylesheet"
-    style.href= path;
+    style.href = path;
     document.head.appendChild(style);
- }
+}
 
 function api_getDomain() {
     return location.href.split("?")[0];
@@ -58,7 +58,7 @@ function api_loadPage(contentid = "content", page = "") {
     if (page == "") {
         page = api_currentpage()
     }
-    
+
     var pageContent = document.getElementById(contentid);
     var xhr = new XMLHttpRequest();
     xhr.open("GET", `pages\\${page}.html`);
@@ -69,9 +69,7 @@ function api_loadPage(contentid = "content", page = "") {
             var pageLoaded = xhr.response;
             pageContent.innerHTML = pageLoaded
         }
-        if(page == "home"){
-            load_js("js/hagr_slider.js")
-        }
+        
     })
 }
 
@@ -90,7 +88,7 @@ function api_getCategories() {
             }
             document.getElementById("categories").innerHTML = htmlStr;
             document.querySelectorAll("#categories li a").forEach(function (elm) {
-                elm.onclick=function (evt) {
+                elm.onclick = function (evt) {
                     evt.preventDefault();
                     api_getProducts(`https://fakestoreapi.com/products/category/${elm.textContent}`)
                 }
@@ -99,11 +97,11 @@ function api_getCategories() {
     })
 }
 
-function api_search(inputVal="") {
-    var catName = categoriesName.find((e)=>{return e.includes(inputVal)})
+function api_search(inputVal = "") {
+    var catName = categoriesName.find((e) => { return e.includes(inputVal) })
     if (!inputVal) {
         api_getProducts()
-    }else{
+    } else {
         api_getProducts(`https://fakestoreapi.com/products/category/${catName}`)
     }
 }
@@ -122,10 +120,12 @@ function api_getProducts(getUri = "https://fakestoreapi.com/products") {
             for (var pro of products) {
 
                 htmlStr += `<div class="product"> 
-                                <a href="${api_getDomain()}?page=singleproduct&id=${pro.id}"><img src="${pro.image}" alt=""></a>
+            <div class = "product2">
+                                <a href="${api_getDomain()}?page=singleproduct&id=${pro.id}"><img src="${pro.image}" alt="" class="myHomeImg"></a>
                                 <p><a href="${api_getDomain()}?page=singleproduct&id=${pro.id}">${pro.title.slice(0, 50)}</p></a>
+                                </div>
                                 <div class="price">
-                                    <span>${pro.price} EGP</span>
+                                    <span>${pro.price} $</span>
                                     <div class="rate">
                                         <i class="fa-sharp fa-solid fa-star"></i>
                                         <i class="fa-sharp fa-solid fa-star"></i>
@@ -135,7 +135,7 @@ function api_getProducts(getUri = "https://fakestoreapi.com/products") {
                                     </div>
                                 </div>
                                 <p><a href="">Free Shipping</a></p>
-                                <button proid="${pro.id}" onclick="addToCard(${pro.id})">ADD TO CART</button>
+                                <button class="myButtonProduct" proid="${pro.id}" onclick="addToCart(${pro.id})">ADD TO CART</button>
                             </div>`;
                 if (i % 4 == 0 && i > 3 && i / 4 < (products.length / 4)) {
                     htmlStr += `</section><section class="row1">`
@@ -145,19 +145,30 @@ function api_getProducts(getUri = "https://fakestoreapi.com/products") {
 
             }
             htmlStr += `</section>`;
-            if(products.length>0){
+            if (products.length > 0) {
                 document.getElementById("products").innerHTML = htmlStr;
-            }else{
+            } else {
                 document.getElementById("products").innerHTML = `<h2 style="text-align: center;margin: 50px auto;">No Search Reseults</h2>`;
             }
         }
     })
 }
 
-var i=0
-function addToCard(id){
-  
-    localStorage.setItem(i, id)
+
+var i = 0
+function addToCart(dd) {
+    localStorage.setItem(i, dd)
     i++
-    
 }
+
+// var i = 0
+// function addToCart() {
+//     for(var r=0 ; r<localStorage.length ; r++){
+//         if (localStorage.getItem(i)==product_id) {
+//             i++
+//         } else {
+//             localStorage.setItem(i, product_id)
+//             i++
+//         }
+//     }
+// }

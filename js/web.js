@@ -17,6 +17,7 @@ if(currPage == "home"){
 if(currPage == "home"){
     api_getProducts()
     load_js("js/home.js")
+    load_js("js/slider.js")
 }else if(currPage == "singleproduct"){
     load_css("css/singleproduct.css")
     load_js("js/singleproduct.js")

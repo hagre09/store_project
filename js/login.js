@@ -11,10 +11,17 @@ signInButton.addEventListener('click', () => {
 });
 
 
+var d = new Date()
+
+d.setMonth(d.getMonth() + 3)
+
+var savedCookies = document.cookie
+
+
 function sinnigUp() {
     var regexOnlyLetter = /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/
     var regexForEmail = /^[a-zA-Z]+(@)(gmail|outlook|yahoo)(.com)$/
-    var regexForPassword = /(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}/
+    var regexForPassword = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/
 
     var signUpName = document.getElementById("signUpName").value
     var signUpEmail = document.getElementById("signUpEmail").value
@@ -29,20 +36,31 @@ function sinnigUp() {
     } else if (!regexForPassword.test(signUpPassword)) {
         alert("Password Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters");
     } else {
-        localStorage.setItem("password", signUpPassword)
-        localStorage.setItem("email", signUpEmail)
-        alert("wellcom : "+ signUpName +" your information saved successfully .");
+        document.cookie = "email=" + signUpEmail + ";expires=" + d
+        document.cookie = "password=" + signUpPassword + ";expires=" + d
+
+        alert("wellcom : " + signUpName + " your information saved successfully .");
     }
 }
 
 
-function sinnigIn(){
-    var signInEmail= document.getElementById("signInEmail").value
-    var signInPassword= document.getElementById("signInPassword").value
+function sinnigIn() {
+    var signInEmail = document.getElementById("signInEmail").value
+    var signInPassword = document.getElementById("signInPassword").value
 
-    if(localStorage.getItem("email")==signInEmail && localStorage.getItem("password")==signInPassword){
+    var cookiesArr = savedCookies.split(";")
+    var obj = {}
+    for (var i = 0; i < cookiesArr.length; i++) {
+        var arr = cookiesArr[i].split("=")
+        obj[arr[0].trim()] = arr[1]
+    }
+
+    var emailFromCookie = obj.email
+    var passwordFromCookie = obj.password
+
+    if (emailFromCookie == signInEmail && passwordFromCookie == signInPassword) {
         alert("valid email .. wellcome ")
-    }else{
+    } else {
         alert("You are not registered , please go to sign up and registere .")
     }
 }
@@ -52,10 +70,10 @@ function myFunction() {
     var x = document.getElementById("signUpPassword");
     var y = document.getElementById("signInPassword");
     if (x.type === "password" || y.type === "password") {
-      x.type = "text";
-      y.type = "text";
+        x.type = "text";
+        y.type = "text";
     } else {
-      x.type = "password";
-      y.type = "password";
+        x.type = "password";
+        y.type = "password";
     }
-  }
+}

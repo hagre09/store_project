@@ -46,7 +46,7 @@
                     <a href="index.html?page=cart">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <span>Cart</span>
-                        <span></span>
+                        <span id="countCart"></span>
                     </a>
                 </div>
                 <!-- <div>
@@ -60,7 +60,7 @@
                         <i class="fa-solid fa-user"></i>
                         <span>Login / </span>
                         <i class="fa-solid fa-user-plus"></i>
-                            <span>Register</span>
+                        <span>Register</span>
                     </a>
                 </div>
                 <div class="form-div">
@@ -82,8 +82,8 @@
         <section id="aside-slider" class="row"></section>
         <section id="products" class="row"></section>
     </section>
- 
-    
+
+
     <!-- Start Footer -------------------------------------------------------------->
     <footer>
         <section id="footer1">
@@ -104,7 +104,8 @@
                         </div>
                         <div>
                             <h3>DOWNLOAD JUMIA FREE APP</p>
-                            <p>Get access to exclusive offers!</h3>
+                                <p>Get access to exclusive offers!
+                            </h3>
                         </div>
                     </div>
                     <div>
@@ -118,10 +119,23 @@
     </footer>
     <!-- End Footer -------------------------------------------------------------->
 
-    
+    <script>
+        var x = []
+        for (var i = 0; i < localStorage.length; i++) {
+            x[i] = localStorage.getItem(i)
+        }
+
+        var myids = [];
+        x.forEach((element) => {
+            if (!myids.includes(element)) {
+                myids.push(element);
+            }
+        });
+        document.getElementById("countCart").innerHTML = myids.length
+    </script>
     <script src="js/font-awesome.js"></script>
     <script src="js/api.js?v=3"></script>
     <script src="js/web.js?v=3"></script>
 </body>
 
-</html> 
+</html>

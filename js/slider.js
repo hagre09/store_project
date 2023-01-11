@@ -1,4 +1,3 @@
-
 var imgs = document.querySelectorAll("#imgSlider img");
 var i = 0;
 var intervalShow;
@@ -45,6 +44,5 @@ document.getElementById("previous").onclick = function (evt) {
 intervalShow = setInterval(() => {
     move();
 }, 2000);
-
 
 
