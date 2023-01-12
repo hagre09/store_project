@@ -155,20 +155,33 @@ function api_getProducts(getUri = "https://fakestoreapi.com/products") {
 }
 
 
-var i = 0
-function addToCart(dd) {
-    localStorage.setItem(i, dd)
-    i++
+// localStorage.clear();
+if(!localStorage.getItem("cartIdsStr")){
+    localStorage.setItem("cartIdsStr", '')
 }
 
-// var i = 0
-// function addToCart() {
-//     for(var r=0 ; r<localStorage.length ; r++){
-//         if (localStorage.getItem(i)==product_id) {
-//             i++
-//         } else {
-//             localStorage.setItem(i, product_id)
-//             i++
-//         }
-//     }
-// }
+function getCartidArr() {
+    var cartIdsStr_old = localStorage.getItem("cartIdsStr")
+    return (cartIdsStr_old == '') ? [] : cartIdsStr_old.split(',');
+    
+}
+
+function setCartCount(){
+    var cartIdsStr = getCartidArr()
+    document.getElementById("countCart").textContent = cartIdsStr.length;
+}
+
+function addToCart(dd) {
+    var cartIdsStr = getCartidArr()
+
+    console.log(cartIdsStr.length)
+
+    if(!cartIdsStr.find((e)=> {return e==dd}))
+        cartIdsStr.push(dd);
+    
+        
+    localStorage.setItem('cartIdsStr', cartIdsStr.join(','))
+
+    setCartCount();
+   
+}

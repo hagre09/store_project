@@ -27,7 +27,6 @@ function sinnigUp() {
     var signUpEmail = document.getElementById("signUpEmail").value
     var signUpPassword = document.getElementById("signUpPassword").value
 
-    // console.log(signUpName,signUpEmail,signUpPassword)
 
     if (!regexOnlyLetter.test(signUpName)) {
         alert("user name Must contain on letter or more.");

@@ -47,19 +47,5 @@ if (emailFromCookie && passwordFromCookie) {
     api_getSingleProducts()
 } else {
     alert("You must log in to see product information..")
-    location.href = "http://127.0.0.1:5500/index.html?page=login"
+    location.href = `${api_getDomain()}?page=login`
 }
-
-
-
-// var i
-// function addToCart() {
-//     for (var r = 0; r < localStorage.length; r++) {
-//         if (localStorage.getItem(i) == product_id) {
-//             i++
-//         } else {
-//             localStorage.setItem(i, product_id)
-//             i++
-//         }
-//     }
-// }

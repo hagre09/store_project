@@ -16,15 +16,15 @@ if(currPage == "home"){
 
 if(currPage == "home"){
     api_getProducts()
-    load_js("js/home.js")
     load_js("js/slider.js")
 }else if(currPage == "singleproduct"){
     load_css("css/singleproduct.css")
     load_js("js/singleproduct.js")
 }else if (currPage == "cart"){
-    load_css("css/cart.css")
     load_js("js/cart.js")
 }else if (currPage == "login"){
     load_css("css/login.css")
     load_js("js/login.js")
 }
+
+setCartCount();
